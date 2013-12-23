@@ -17,7 +17,7 @@ curl -s http://getcomposer.org/installer | php
 php composer.phar install
 #Config
 mv inc/poche/config.inc.php.new inc/poche/config.inc.php
-#Random salt with udev
+#Random salt with urandom
 salt=`< /dev/urandom tr -dc _A-Z-a-z-0-9 | head -c20;`
 #config file edition
 sed "s/define ('SALT', '');/define ('SALT', '$salt');/" inc/poche/config.inc.php -i
@@ -44,7 +44,10 @@ esac
 echo "Mise en place des droits d'écriture..."
 chmod 777 -R assets/ cache/ db/
 echo "Suppression des fichiers d'installation..."
-rm -r install/
+if [ $db = 1 ]
+then 
+	rm -r install/
+fi
 rm -r ../latest-poche
 echo "Script d'installation terminé."
 if [ $db != 1 ] 
