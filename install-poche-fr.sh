@@ -32,10 +32,12 @@ case $db in
 		;;
 	2)
 		command -v mysql >/dev/null 2>&1 || { echo >&2 "Vous avez choisi MySQL/MariaDB mais il n'est pas installé. Annulation."; exit 1; } 
+		sed "s/define ('STORAGE', 'sqlite');/define ('STORAGE', 'mysql');/" inc/poche/config.inc.php -i 
 		echo -e "MySQL/MariaDB est installée.\nPour l'utiliser, executez install/mysql.sql et entrez dans le fichier de configuration les informations de connexion."
 		;;
 	3)
 		command -v postgres >/dev/null 2>&1 || { echo >&2 "Vous avez choisi PostgreSQL mais il n'est pas installé. Annulation."; exit 1; }
+		sed "s/define ('STORAGE', 'sqlite');/define ('STORAGE', 'postgres');/" inc/poche/config.inc.php -i 
 		echo "PostgreSQL est installé.\nPour l'utiliser, executez install/postgres.sql et entrez dans le fichier de configuration les informations de connexion."
 		;;
 esac
