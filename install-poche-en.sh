@@ -3,7 +3,7 @@
 #TODO : MySQL/MariaDB/PostgreSQL installation
 
 echo -e "poche installation in this folder...\nStarted download"
-wget "http://r.cdetc.fr/latest-poche"
+wget "http://inthepo.ch/e/latest"
 echo -e "Finished Download"
 unzip latest-poche
 echo -e "Finished unpacking"
