@@ -1,3 +1,10 @@
+Warning
+===
+*Note that this is not longer needed since wallabag (ex-Poche) provides it's own installation script.*
+
+See wallabag at [Github](https://github.com/wallabag/wallabag) or at it's own website : https://www.wallabag.org
+
+
 Poche-Script-Install
 ====================
 
